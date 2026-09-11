@@ -49,21 +49,3 @@ GOOGLE_API_KEY=tu_api_key_aqui
 #Por ultimo ejecutamos la interfaz Web
 streamlit run app.py
 #Se abrirá automáticamente una ventana en tu navegador #web con el chat de la cooperativa listo para ser #utilizado.
-
-graph TD
-    %% Fase de Ingesta
-    subgraph Ingesta y Procesamiento de Datos
-        A[Reglamento y Actas Los Cerezos] --> B(Carga de Documentos)
-        B --> C(RecursiveCharacterTextSplitter)
-        C --> D[SentenceTransformer Embeddings]
-        D --> E[(ChromaDB - Base Vectorial Local)]
-    end
-
-    %% Fase de Interacción y RAG
-    subgraph Generación Aumentada y LLM
-        F[Input Usuario - Streamlit] -->|Consulta sobre multas/normas| G(Retriever - Búsqueda por Similitud k=10)
-        E -.->|Contexto Relevante| G
-        G --> H{System Prompt Estricto}
-        H --> I[Gemini 3.5 Flash Lite]
-        I -->|Respuesta Fáctica o Derivación| F
-    end
