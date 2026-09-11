@@ -1,0 +1,10 @@
+# Variables de entorno (Seguridad)
+.env
+
+# Base de datos vectorial local
+chroma_db/
+
+# Entornos virtuales y caché de Python
+.venv/
+__pycache__/
+.ipynb_checkpoints/
