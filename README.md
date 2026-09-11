@@ -22,6 +22,30 @@ El sistema opera de forma local, garantizando la privacidad de la información y
 
 ---
 
+## 🏗️ Arquitectura del Sistema
+
+El siguiente diagrama detalla el flujo de datos, desde la vectorización de los reglamentos hasta la recuperación de contexto y generación de respuestas por parte del LLM.
+
+```mermaid
+graph TD
+    %% Fase de Ingesta
+    subgraph Ingesta y Procesamiento de Datos
+        A[Reglamento y Actas Los Cerezos] --> B(Carga de Documentos)
+        B --> C(RecursiveCharacterTextSplitter)
+        C --> D[SentenceTransformer Embeddings]
+        D --> E[(ChromaDB - Base Vectorial Local)]
+    end
+
+    %% Fase de Interacción y RAG
+    subgraph Generación Aumentada y LLM
+        F[Input Usuario - Streamlit] -->|Consulta sobre multas/normas| G(Retriever - Búsqueda por Similitud k=10)
+        E -.->|Contexto Relevante| G
+        G --> H{System Prompt Estricto}
+        H --> I[Gemini 3.5 Flash Lite]
+        I -->|Respuesta Fáctica o Derivación| F
+    end
+```
+
 ## 📥 Guía de Instalación y Uso (Paso a Paso)
 
 Sigue estos pasos para clonar y ejecutar la aplicación en tu propio entorno local:
