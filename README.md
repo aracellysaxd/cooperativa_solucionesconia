@@ -73,3 +73,5 @@ GOOGLE_API_KEY=tu_api_key_aqui
 #Por ultimo ejecutamos la interfaz Web
 streamlit run app.py
 #Se abrirá automáticamente una ventana en tu navegador #web con el chat de la cooperativa listo para ser #utilizado.
+```
+![Interacción con el bot de la cooperativa](assets/prueba_interfaz.png)
