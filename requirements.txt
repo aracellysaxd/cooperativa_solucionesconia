@@ -2,9 +2,11 @@ langchain
 langchain-core
 langchain-community
 langchain-google-genai
-langchain-classic
+langchain-text-splitters
+langgraph
 chromadb
 sentence-transformers
 streamlit
 python-dotenv
 pypdf
+pydantic

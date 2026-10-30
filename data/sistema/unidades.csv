@@ -1,0 +1,6 @@
+unidad,cuotas_impagas,monto_adeudado_clp,dias_mora,ruido_12m,mascotas_12m
+A-101,0,0,0,0,0
+A-102,1,85000,18,1,0
+B-201,3,262000,75,2,1
+B-202,0,0,0,3,0
+C-301,2,170000,45,0,1
