@@ -1,4 +1,4 @@
-# 🏘️ Agente Organizacional – Comunidad Solidaria Los Cerezos
+# Agente Organizacional – Comunidad Solidaria Los Cerezos
 
 Agente de IA para la cooperativa de vivienda **Los Cerezos** (Cerro Navia, Santiago). Evolución del asistente RAG de la
 Evaluación Parcial 1: ahora **planifica, usa herramientas de consulta, razonamiento y escritura, y recuerda** (corto y largo plazo).
@@ -15,7 +15,7 @@ Evaluación Parcial 1: ahora **planifica, usa herramientas de consulta, razonami
 | **Escritura**: borradores | "Redacta un aviso por mi deuda" → guarda un comunicado en `salidas/` |
 | **Memoria** | Recuerda lo dicho en la sesión y las solicitudes pasadas de la unidad |
 
-## 🏗️ Arquitectura de orquestación
+## Arquitectura de orquestación
 
 Framework: **LangGraph** (grafo de estados con aristas condicionales) + LangChain (herramientas, modelos) + ChromaDB (vectores) + Gemini.
 
@@ -71,7 +71,7 @@ El nodo `planificar` devuelve un `Plan` validado con Pydantic (intención, prior
 El grafo **inyecta siempre la unidad del usuario** en las herramientas que operan sobre una unidad: el modelo no puede consultar ni
 modificar datos de otra unidad aunque se lo pidan.
 
-## 🧩 Decisiones de diseño (resumen)
+## Decisiones de diseño (resumen)
 | Decisión | Motivo |
 |---|---|
 | LangGraph en vez de un agente libre | Flujo auditable y determinista en las rutas críticas (derivar, confirmar, tope de ciclos) |
@@ -79,7 +79,7 @@ modificar datos de otra unidad aunque se lo pidan.
 | RAG convertido en una herramienta | Reutiliza la etapa 1 y el agente decide cuándo consultarlo |
 | Chroma también para memoria larga | Ya estaba en el proyecto; permite recuperación semántica con filtro por unidad |
 
-## 📁 Estructura
+## Estructura
 ```
 app.py                    # interfaz Streamlit
 agente/
@@ -92,7 +92,7 @@ data/sistema/unidades.csv # datos simulados de unidades
 tests/test_servicios.py   # pruebas de la lógica determinista
 ```
 
-## 🚀 Instalación y ejecución
+## Instalación y ejecución
 ```bash
 git clone https://github.com/aracellysaxd/cooperativa_solucionesconia.git
 cd cooperativa_solucionesconia
@@ -113,7 +113,7 @@ Ejecutar las pruebas de lógica (no requieren API key):
 python tests/test_servicios.py
 ```
 
-## 🧪 Escenarios de prueba / demo
+## Escenarios de prueba / demo
 | # | Usuario (unidad) | Qué demuestra | Resultado esperado |
 |---|---|---|---|
 | 1 | A-102: "¿Cuál es el horario de mudanzas?" | Consulta RAG | Responde con el Art. 25 y cita la fuente |
@@ -128,11 +128,11 @@ python tests/test_servicios.py
 El panel **"Razonamiento del agente"** de la interfaz muestra, por turno, el plan, las herramientas usadas y las decisiones tomadas
 (evidencia para la defensa).
 
-## 🤖 Declaración de uso de IA
+## Declaración de uso de IA
 Se utilizó Claude (Anthropic) como apoyo en la implementación del código, estructura del repositorio y borradores de documentación;
 el código fue revisado y probado por el equipo. Las justificaciones técnicas y conclusiones del informe son del equipo.
 
-## 📚 Referencias
+## Referencias
 - LangChain. (s. f.). *LangGraph documentation*. https://langchain-ai.github.io/langgraph/
 - LangChain. (s. f.). *LangChain documentation*. https://python.langchain.com/
 - Yao, S., et al. (2023). *ReAct: Synergizing reasoning and acting in language models*. ICLR.
